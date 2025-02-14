@@ -12,4 +12,30 @@ document.addEventListener('click', function(event) {
         sidebar.classList.remove('active');
         document.querySelector('.container').classList.remove('active');
     }
-}); 
+});
+
+// Thêm function mới để load menu
+document.addEventListener('DOMContentLoaded', function() {
+    // Load menu
+    fetch('components/menu.html')
+        .then(response => response.text())
+        .then(data => {
+            // Chèn menu vào đầu body
+            document.body.insertAdjacentHTML('afterbegin', data);
+            
+            // Highlight menu item hiện tại
+            highlightCurrentPage();
+        });
+});
+
+// Function để highlight trang hiện tại trong menu
+function highlightCurrentPage() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const menuItems = document.querySelectorAll('.sidebar ul li a');
+    
+    menuItems.forEach(item => {
+        if (item.getAttribute('href') === currentPage) {
+            item.parentElement.classList.add('active');
+        }
+    });
+} 

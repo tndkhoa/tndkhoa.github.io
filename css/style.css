@@ -377,4 +377,13 @@ iframe {
 /* Cập nhật màu cho các liên kết trong sidebar */
 .sidebar ul li a:hover {
     color: var(--excel-green);
+}
+
+/* Thêm vào file style.css */
+.sidebar ul li.active {
+    background-color: var(--excel-green);
+}
+
+.sidebar ul li.active a {
+    color: white;
 } 
