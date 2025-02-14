@@ -1,137 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLOOKUP Function - Excel Practice</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-        }
-        .sidebar {
-            width: 250px;
-            background: #0073e6;
-            color: white;
-            padding: 20px;
-            height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
-            overflow-y: auto;
-            transition: transform 0.3s ease;
-        }
-        .sidebar.hidden {
-            transform: translateX(-250px);
-        }
-        .toggle-btn {
-            position: fixed;
-            left: 10px;
-            top: 10px;
-            background: #0073e6;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        .container {
-            flex-grow: 1;
-            margin-left: 270px; /* Điều chỉnh để khi menu mở, nội dung không bị che khuất */
-            padding: 20px;
-            background: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            transition: margin-left 0.3s ease;
-        }
-        .sidebar.hidden + .container {
-            margin-left: 20px; /* Khi menu ẩn, nội dung trở về vị trí ban đầu */
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #0073e6;
-            color: white;
-        }
-    </style>
-    <script>
-        function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('hidden');
-            if (document.querySelector('.sidebar').classList.contains('hidden')) {
-                document.querySelector('.container').style.marginLeft = '20px';
-            } else {
-                document.querySelector('.container').style.marginLeft = '270px';
-            }
-        }
-    </script>
+    <title>Hàm VLOOKUP - Thực hành Excel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
     <div class="sidebar">
-        <h2>Function List</h2>
+        <h2>Danh sách Hàm</h2>
         <ul>
             <li><a href="vlookup.html">VLOOKUP</a></li>
             <li><a href="hlookup.html">HLOOKUP</a></li>
-            <li><a href="#">INDEX</a></li>
-            <li><a href="#">MATCH</a></li>
-            <li><a href="#">IF</a></li>
-            <li><a href="#">SUM</a></li>
-            <li><a href="#">AVERAGE</a></li>
-            <li><a href="#">COUNT</a></li>
+            <li><a href="excel-index.html">INDEX</a></li>
+            <li><a href="sum.html">SUM</a></li>
+            <li><a href="count.html">COUNT</a></li>
+            <li><a href="countif.html">COUNTIF</a></li>
         </ul>
     </div>
     <div class="container">
-        <h1>Excel VLOOKUP Function</h1>
-        <p>The VLOOKUP function in Excel is used to search for a value in the first column of a table and return a corresponding value from another column.</p>
+        <h1>Hàm VLOOKUP trong Excel</h1>
+        <p>Hàm VLOOKUP là một trong những hàm tìm kiếm và tham chiếu quan trọng nhất trong Excel. Nó cho phép bạn tìm kiếm một giá trị trong cột đầu tiên bên trái của một bảng và trả về giá trị từ bất kỳ cột nào trong cùng hàng của bảng đó.</p>
         
-        <h2>Syntax</h2>
+        <h2>Cú pháp</h2>
         <pre><code>VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code></pre>
         
-        <h2>Example</h2>
-        <p>Consider the following table:</p>
+        <h2>Các tham số</h2>
+        <ul>
+            <li><strong>lookup_value:</strong> Giá trị bạn muốn tìm kiếm</li>
+            <li><strong>table_array:</strong> Phạm vi dữ liệu bạn muốn tìm kiếm trong đó</li>
+            <li><strong>col_index_num:</strong> Số thứ tự cột chứa giá trị bạn muốn trả về</li>
+            <li><strong>range_lookup:</strong> TRUE = tìm kiếm tương đối, FALSE = tìm kiếm chính xác (tùy chọn)</li>
+        </ul>
+
+        <h2>Ví dụ</h2>
+        <p>Xét bảng dữ liệu sau:</p>
         
         <table>
             <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Price</th>
+                <th>Mã SP</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
             </tr>
             <tr>
-                <td>101</td>
-                <td>Apple</td>
-                <td>$1.00</td>
+                <td>SP001</td>
+                <td>Laptop Dell</td>
+                <td>15,000,000</td>
             </tr>
             <tr>
-                <td>102</td>
-                <td>Banana</td>
-                <td>$0.50</td>
+                <td>SP002</td>
+                <td>Máy in HP</td>
+                <td>5,000,000</td>
             </tr>
             <tr>
-                <td>103</td>
-                <td>Orange</td>
-                <td>$0.75</td>
+                <td>SP003</td>
+                <td>Chuột Logitech</td>
+                <td>500,000</td>
             </tr>
         </table>
-        
-        <p>To find the price of a product with ID 102, use the formula:</p>
-        <pre><code>=VLOOKUP(102, A2:C4, 3, FALSE)</code></pre>
-        
-        <p>This will return <strong>$0.50</strong> since Banana has ID 102.</p>
-        
-        <h2>Embedded Spreadsheet</h2>
-        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://dailythuetruonggia-my.sharepoint.com/:x:/g/personal/tnd_khoa_dailythuetruonggia_vn/EfCLpbTDH9FEobfYlYaDT7IBEPAiGpM5v7HL7DLAR7--nA?e=FT3RlA&action=embedview&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Sheet1'!C4&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+
+        <p>Để tìm tên sản phẩm có mã SP002:</p>
+        <pre><code>=VLOOKUP("SP002", A2:C4, 2, FALSE)</code></pre>
+        <p>Kết quả: Máy in HP</p>
+
+        <h2>Các trường hợp sử dụng phổ biến</h2>
+        <ol>
+            <li>Tìm kiếm thông tin sản phẩm dựa trên mã sản phẩm</li>
+            <li>Tra cứu giá bán dựa trên mã sản phẩm</li>
+            <li>Tìm thông tin nhân viên dựa trên mã nhân viên</li>
+        </ol>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Giá trị cần tìm phải nằm ở cột ngoài cùng bên trái của bảng dữ liệu</li>
+            <li>Số thứ tự cột bắt đầu từ 1, không phải từ 0</li>
+            <li>Nên sử dụng FALSE cho range_lookup để tìm kiếm chính xác</li>
+            <li>Dữ liệu cần được sắp xếp tăng dần nếu sử dụng TRUE cho range_lookup</li>
+        </ul>
+
+        <h2>Bảng tính mẫu</h2>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=E5BD4D8E6B4F9EE4%21138&authkey=%21AHnY0Uy8S5HKQcM&em=2&wdAllowInteractivity=False&Item='Sheet1'!A1%3AD11&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
     </div>
 </body>
 </html>
