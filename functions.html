@@ -12,37 +12,43 @@
             background-color: #f4f4f4;
             display: flex;
         }
-        .container {
-            width: 70%;
-            margin: 20px;
-            background: white;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
         .sidebar {
-            width: 25%;
+            width: 250px;
             background: #0073e6;
             color: white;
             padding: 20px;
             height: 100vh;
             position: fixed;
-            right: 0;
+            left: 0;
             top: 0;
             overflow-y: auto;
+            transition: transform 0.3s ease;
         }
-        .sidebar h2 {
-            margin-top: 0;
+        .sidebar.hidden {
+            transform: translateX(-250px);
         }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin: 10px 0;
-        }
-        .sidebar ul li a {
+        .toggle-btn {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background: #0073e6;
             color: white;
-            text-decoration: none;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .container {
+            width: 70%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 260px;
+            transition: margin-left 0.3s ease;
+        }
+        .container.full-width {
+            margin-left: 10px;
         }
         table {
             width: 100%;
@@ -61,8 +67,28 @@
             color: white;
         }
     </style>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('hidden');
+            document.querySelector('.container').classList.toggle('full-width');
+        }
+    </script>
 </head>
 <body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="sidebar">
+        <h2>Function List</h2>
+        <ul>
+            <li><a href="#">VLOOKUP</a></li>
+            <li><a href="#">HLOOKUP</a></li>
+            <li><a href="#">INDEX</a></li>
+            <li><a href="#">MATCH</a></li>
+            <li><a href="#">IF</a></li>
+            <li><a href="#">SUM</a></li>
+            <li><a href="#">AVERAGE</a></li>
+            <li><a href="#">COUNT</a></li>
+        </ul>
+    </div>
     <div class="container">
         <h1>Excel VLOOKUP Function</h1>
         <p>The VLOOKUP function in Excel is used to search for a value in the first column of a table and return a corresponding value from another column.</p>
@@ -99,23 +125,10 @@
         <p>To find the price of a product with ID 102, use the formula:</p>
         <pre><code>=VLOOKUP(102, A2:C4, 3, FALSE)</code></pre>
         
-        <p>This will return <strong>$0.50</strong> since Banana has ID 1024.</p>
+        <p>This will return <strong>$0.50</strong> since Banana has ID 102.</p>
         
         <h2>Embedded Spreadsheet</h2>
-        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://dailythuetruonggia-my.sharepoint.com/:x:/g/personal/tnd_khoa_dailythuetruonggia_vn/EfCLpbTDH9FEobfYlYaDT7IBEPAiGpM5v7HL7DLAR7--nA?e=FT3RlA&action=embedview&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Sheet1'!C4&wdInConfigurator=True&wdInConfigurator=True"></iframe>    </div>
-        
-    <div class="sidebar">
-        <h2>Function List</h2>
-        <ul>
-            <li><a href="#">VLOOKUP</a></li>
-            <li><a href="#">HLOOKUP</a></li>
-            <li><a href="#">INDEX</a></li>
-            <li><a href="#">MATCH</a></li>
-            <li><a href="#">IF</a></li>
-            <li><a href="#">SUM</a></li>
-            <li><a href="#">AVERAGE</a></li>
-            <li><a href="#">COUNT</a></li>
-        </ul>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://dailythuetruonggia-my.sharepoint.com/:x:/g/personal/tnd_khoa_dailythuetruonggia_vn/EfCLpbTDH9FEobfYlYaDT7IBEPAiGpM5v7HL7DLAR7--nA?e=FT3RlA&action=embedview&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Sheet1'!C4&wdInConfigurator=True&wdInConfigurator=True"></iframe>
     </div>
 </body>
 </html>
