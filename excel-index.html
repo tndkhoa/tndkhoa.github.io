@@ -23,7 +23,72 @@
         </ul>
     </div>
     <div class="container">
-        <!-- Nội dung giữ nguyên -->
+        <h1>Hàm INDEX trong Excel</h1>
+        <p>Hàm INDEX được sử dụng để trả về một giá trị hoặc tham chiếu của một ô tại một vị trí cụ thể trong một phạm vi. Đây là một hàm mạnh mẽ, đặc biệt khi kết hợp với các hàm khác như MATCH.</p>
+        
+        <h2>Cú pháp</h2>
+        <pre><code>INDEX(array, row_num, [column_num])</code></pre>
+        
+        <h2>Các tham số</h2>
+        <ul>
+            <li><strong>array:</strong> Vùng dữ liệu cần tìm kiếm</li>
+            <li><strong>row_num:</strong> Số thứ tự hàng trong vùng dữ liệu</li>
+            <li><strong>column_num:</strong> Số thứ tự cột trong vùng dữ liệu (tùy chọn nếu array chỉ có một cột)</li>
+        </ul>
+
+        <h2>Ví dụ</h2>
+        <p>Xét bảng dữ liệu sau:</p>
+        
+        <table>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+            </tr>
+            <tr>
+                <td>Laptop</td>
+                <td>15,000,000</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Điện thoại</td>
+                <td>8,000,000</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Máy tính bảng</td>
+                <td>12,000,000</td>
+                <td>15</td>
+            </tr>
+        </table>
+
+        <h2>Các cách sử dụng</h2>
+        <ol>
+            <li>Lấy giá trị từ một mảng một chiều:
+                <pre><code>=INDEX(A2:A4, 2)</code></pre>
+                <p>Kết quả: "Điện thoại" (hàng thứ 2)</p>
+            </li>
+            <li>Lấy giá trị từ một mảng hai chiều:
+                <pre><code>=INDEX(A2:C4, 2, 3)</code></pre>
+                <p>Kết quả: 20 (hàng 2, cột 3 - số lượng điện thoại)</p>
+            </li>
+        </ol>
+
+        <h2>Kết hợp INDEX với MATCH</h2>
+        <p>Hàm INDEX thường được kết hợp với hàm MATCH để tạo ra tìm kiếm linh hoạt hơn:</p>
+        <pre><code>=INDEX(B2:B4, MATCH("Điện thoại", A2:A4, 0))</code></pre>
+        <p>Kết quả: 8,000,000 (giá của Điện thoại)</p>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Số hàng và số cột bắt đầu từ 1</li>
+            <li>Nếu chỉ định số hàng/cột vượt quá phạm vi, hàm sẽ trả về lỗi #REF!</li>
+            <li>Có thể sử dụng 0 cho row_num hoặc column_num để trả về một mảng toàn bộ hàng hoặc cột</li>
+            <li>INDEX linh hoạt hơn VLOOKUP vì có thể tìm kiếm theo cả hàng và cột</li>
+        </ul>
+
+        <h2>Bảng tính mẫu</h2>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=E5BD4D8E6B4F9EE4%21138&authkey=%21AHnY0Uy8S5HKQcM&em=2&wdAllowInteractivity=False&Item='Sheet1'!A1%3AD11&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
     </div>
 </body>
 </html> 

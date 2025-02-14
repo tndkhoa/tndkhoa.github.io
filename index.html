@@ -3,246 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ - Học Excel</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f5f7fa;
-            line-height: 1.6;
-        }
-
-        /* Header và Navigation */
-        nav {
-            background: linear-gradient(135deg, #0073e6, #00408b);
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        nav a:hover, .dropdown:hover .dropbtn {
-            background-color: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Dropdown Menu */
-        .dropdown-content {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            min-width: 200px;
-            padding: 10px 0;
-        }
-
-        .dropdown-content a {
-            color: #333;
-            padding: 12px 25px;
-            transition: all 0.2s ease;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f0f5ff;
-            color: #0073e6;
-            padding-left: 30px;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        h1 {
-            color: #1a1a1a;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, #0073e6, #00c6ff);
-            border-radius: 2px;
-        }
-
-        h2 {
-            color: #2c3e50;
-            margin: 25px 0 15px;
-            font-size: 1.8em;
-        }
-
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        th {
-            background-color: #0073e6;
-            color: white;
-            font-weight: 500;
-        }
-
-        tr:hover {
-            background-color: #f8f9fa;
-        }
-
-        /* Code Blocks */
-        pre {
-            background: #2c3e50;
-            color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 15px 0;
-        }
-
-        code {
-            font-family: 'Consolas', monospace;
-            font-size: 0.9em;
-        }
-
-        /* Lists */
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 25px;
-        }
-
-        li {
-            margin: 10px 0;
-            color: #444;
-        }
-
-        /* Cards for Examples */
-        .example-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #0073e6;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #005bb5;
-            transform: translateY(-2px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                padding: 10px;
-            }
-            
-            nav a {
-                padding: 8px 15px;
-                display: block;
-                margin: 5px 0;
-            }
-            
-            .dropdown-content {
-                position: static;
-                box-shadow: none;
-                padding: 0;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .container {
-            animation: fadeIn 0.5s ease-out;
-        }
-    </style>
+    <title>Thực hành Excel - Trang chủ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="sidebar">
+        <h2>Danh sách Hàm</h2>
+        <ul>
+            <li><a href="vlookup.html">VLOOKUP</a></li>
+            <li><a href="hlookup.html">HLOOKUP</a></li>
+            <li><a href="excel-index.html">INDEX</a></li>
+            <li><a href="sum.html">SUM</a></li>
+            <li><a href="count.html">COUNT</a></li>
+            <li><a href="countif.html">COUNTIF</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Thực hành các hàm Excel cơ bản</h1>
+        <p>Chào mừng bạn đến với trang web thực hành Excel! Tại đây, bạn sẽ học cách sử dụng các hàm Excel phổ biến và quan trọng nhất.</p>
 
-    <h1>Học Excel Online 365- Trang chủ</h1>
-
-    <nav>
-        <a href="index.html">Trang chủ</a> |
-        <div class="dropdown">
-            <a href="#" class="dropbtn">Danh sách hàm Excel ▼</a>
-            <div class="dropdown-content">
-                <a href="vlookup.html">Hàm VLOOKUP</a>
-                <a href="hlookup.html">Hàm HLOOKUP</a>
-                <a href="excel-index.html">Hàm INDEX</a>
-                <a href="sum.html">Hàm SUM</a>
-                <a href="count.html">Hàm COUNT</a>
-                <a href="countif.html">Hàm COUNTIF</a>
+        <h2>Các hàm Excel cơ bản</h2>
+        <div class="function-grid">
+            <div class="function-card">
+                <h3><i class="fas fa-search"></i> VLOOKUP</h3>
+                <p>Tìm kiếm và trả về giá trị từ một cột trong bảng dữ liệu.</p>
+                <a href="vlookup.html" class="btn">Xem chi tiết</a>
             </div>
-        </div> |
-        <a href="tutorials.html">Hướng dẫn</a> |
-        <a href="contact.html">Liên hệ</a>
-    </nav>
 
-    <p>Chào mừng đến với trang học Excel trực tuyến!</p>
+            <div class="function-card">
+                <h3><i class="fas fa-table"></i> HLOOKUP</h3>
+                <p>Tìm kiếm theo chiều ngang và trả về giá trị từ một hàng trong bảng.</p>
+                <a href="hlookup.html" class="btn">Xem chi tiết</a>
+            </div>
 
+            <div class="function-card">
+                <h3><i class="fas fa-th"></i> INDEX</h3>
+                <p>Trả về giá trị tại một vị trí cụ thể trong một phạm vi.</p>
+                <a href="excel-index.html" class="btn">Xem chi tiết</a>
+            </div>
+
+            <div class="function-card">
+                <h3><i class="fas fa-plus"></i> SUM</h3>
+                <p>Tính tổng các giá trị số trong một phạm vi.</p>
+                <a href="sum.html" class="btn">Xem chi tiết</a>
+            </div>
+
+            <div class="function-card">
+                <h3><i class="fas fa-list-ol"></i> COUNT</h3>
+                <p>Đếm số lượng ô chứa số trong một phạm vi.</p>
+                <a href="count.html" class="btn">Xem chi tiết</a>
+            </div>
+
+            <div class="function-card">
+                <h3><i class="fas fa-filter"></i> COUNTIF</h3>
+                <p>Đếm số lượng ô thỏa mãn một điều kiện.</p>
+                <a href="countif.html" class="btn">Xem chi tiết</a>
+            </div>
+        </div>
+
+        <h2>Tại sao nên học Excel?</h2>
+        <div class="info-section">
+            <ul>
+                <li>Excel là công cụ phổ biến trong môi trường làm việc văn phòng</li>
+                <li>Giúp quản lý và phân tích dữ liệu hiệu quả</li>
+                <li>Tăng năng suất làm việc với các công thức và hàm tự động</li>
+                <li>Tạo báo cáo chuyên nghiệp và trực quan</li>
+            </ul>
+        </div>
+
+        <h2>Cách sử dụng trang web</h2>
+        <div class="info-section">
+            <ol>
+                <li>Chọn hàm bạn muốn học từ menu bên trái</li>
+                <li>Đọc kỹ phần giải thích và cú pháp</li>
+                <li>Làm theo các ví dụ thực hành</li>
+                <li>Thử nghiệm với bảng tính mẫu</li>
+            </ol>
+        </div>
+    </div>
 </body>
 </html>
