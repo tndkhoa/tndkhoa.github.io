@@ -6,8 +6,15 @@
     font-family: 'Roboto', sans-serif;
 }
 
+:root {
+    --excel-green: #217346;
+    --excel-dark: #1e1e1e;
+    --excel-red: #a4373a;
+    --excel-light: #f3f3f3;
+}
+
 body {
-    background-color: #f5f7fa;
+    background-color: var(--excel-light);
     line-height: 1.6;
 }
 
@@ -18,7 +25,7 @@ body {
     position: fixed;
     top: 0;
     left: -250px;
-    background-color: #2c3e50;
+    background-color: var(--excel-dark);
     padding-top: 60px;
     transition: 0.3s;
     z-index: 999;
@@ -54,7 +61,7 @@ body {
 }
 
 .sidebar ul li a:hover {
-    color: #3498db;
+    color: var(--excel-green);
     padding-left: 10px;
 }
 
@@ -63,7 +70,7 @@ body {
     position: fixed;
     left: 20px;
     top: 20px;
-    background-color: #2c3e50;
+    background-color: var(--excel-green);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -74,7 +81,7 @@ body {
 }
 
 .toggle-btn:hover {
-    background-color: #34495e;
+    background-color: var(--excel-red);
 }
 
 /* Main Content */
@@ -109,7 +116,7 @@ h1::after {
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background: linear-gradient(to right, #2c3e50, #3498db);
+    background: linear-gradient(to right, var(--excel-green), var(--excel-red));
     border-radius: 2px;
 }
 
@@ -142,7 +149,7 @@ th, td {
 }
 
 th {
-    background-color: #2c3e50;
+    background-color: var(--excel-green);
     color: white;
     font-weight: 500;
 }
@@ -153,7 +160,7 @@ tr:hover {
 
 /* Code Blocks */
 pre {
-    background: #2c3e50;
+    background: var(--excel-dark);
     color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -242,11 +249,13 @@ iframe {
     text-align: center;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(33, 115, 70, 0.1);
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--excel-green);
 }
 
 .feature-icon {
@@ -282,7 +291,7 @@ iframe {
 .feature-link {
     display: inline-block;
     padding: 12px 30px;
-    background: #0073e6;
+    background: var(--excel-green);
     color: white;
     text-decoration: none;
     border-radius: 25px;
@@ -291,7 +300,7 @@ iframe {
 }
 
 .feature-link:hover {
-    background: #005bb5;
+    background: var(--excel-red);
     transform: scale(1.05);
 }
 
@@ -341,4 +350,36 @@ iframe {
     .function-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Thêm style cho nút Home */
+.home-btn {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background-color: var(--excel-green);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.home-btn:hover {
+    background-color: var(--excel-red);
+    transform: translateY(-2px);
+}
+
+.home-btn i {
+    font-size: 18px;
+}
+
+/* Cập nhật màu cho các liên kết trong sidebar */
+.sidebar ul li a:hover {
+    color: var(--excel-green);
 } 
