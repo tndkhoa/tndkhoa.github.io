@@ -40,14 +40,14 @@
         }
         .container {
             flex-grow: 1;
-            margin-left: 250px;
+            margin-left: 270px; /* Điều chỉnh để khi menu mở, nội dung không bị che khuất */
             padding: 20px;
             background: white;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             transition: margin-left 0.3s ease;
         }
         .sidebar.hidden + .container {
-            margin-left: 20px;
+            margin-left: 20px; /* Khi menu ẩn, nội dung trở về vị trí ban đầu */
         }
         table {
             width: 100%;
@@ -69,6 +69,11 @@
     <script>
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('hidden');
+            if (document.querySelector('.sidebar').classList.contains('hidden')) {
+                document.querySelector('.container').style.marginLeft = '20px';
+            } else {
+                document.querySelector('.container').style.marginLeft = '270px';
+            }
         }
     </script>
 </head>
