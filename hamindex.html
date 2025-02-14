@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm INDEX - Thực hành Excel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #0073e6;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+        .sidebar.hidden {
+            transform: translateX(-250px);
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background: #0073e6;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .container {
+            flex-grow: 1;
+            margin-left: 270px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            transition: margin-left 0.3s ease;
+        }
+        .sidebar.hidden + .container {
+            margin-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+    </style>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('hidden');
+            if (document.querySelector('.sidebar').classList.contains('hidden')) {
+                document.querySelector('.container').style.marginLeft = '20px';
+            } else {
+                document.querySelector('.container').style.marginLeft = '270px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="sidebar">
+        <h2>Danh sách Hàm</h2>
+        <ul>
+            <li><a href="vlookup.html">VLOOKUP</a></li>
+            <li><a href="hlookup.html">HLOOKUP</a></li>
+            <li><a href="index.html">INDEX</a></li>
+            <li><a href="#">MATCH</a></li>
+            <li><a href="#">IF</a></li>
+            <li><a href="#">SUM</a></li>
+            <li><a href="#">AVERAGE</a></li>
+            <li><a href="#">COUNT</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Hàm INDEX trong Excel</h1>
+        <p>Hàm INDEX trong Excel được sử dụng để trả về giá trị của một ô trong bảng dựa trên chỉ số hàng và cột.</p>
+        
+        <h2>Cú pháp</h2>
+        <pre><code>INDEX(array, row_num, [column_num])</code></pre>
+        
+        <h2>Ví dụ</h2>
+        <p>Xét bảng sau:</p>
+        
+        <table>
+            <tr>
+                <th></th>
+                <th>Cột 1</th>
+                <th>Cột 2</th>
+                <th>Cột 3</th>
+            </tr>
+            <tr>
+                <td>Hàng 1</td>
+                <td>Táo</td>
+                <td>Chuối</td>
+                <td>Cam</td>
+            </tr>
+            <tr>
+                <td>Hàng 2</td>
+                <td>Xoài</td>
+                <td>Ổi</td>
+                <td>Na</td>
+            </tr>
+        </table>
+        
+        <p>Để lấy giá trị ở hàng 2, cột 3, sử dụng công thức:</p>
+        <pre><code>=INDEX(A2:C3, 2, 3)</code></pre>
+        
+        <p>Kết quả sẽ là <strong>Na</strong>.</p>
+        
+        <h2>Bảng tính nhúng</h2>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://dailythuetruonggia-my.sharepoint.com/:x:/g/personal/tnd_khoa_dailythuetruonggia_vn/EfCLpbTDH9FEobfYlYaDT7IBEPAiGpM5v7HL7DLAR7--nA?e=FT3RlA&action=embedview&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Sheet1'!C4&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+    </div>
+</body>
+</html>
