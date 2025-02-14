@@ -39,16 +39,15 @@
             z-index: 1000;
         }
         .container {
-            width: calc(100% - 260px);
+            flex-grow: 1;
             margin: 20px;
             background: white;
             padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            transition: margin-left 0.3s ease, width 0.3s ease;
+            transition: margin-left 0.3s ease;
         }
         .container.full-width {
             margin-left: 20px;
-            width: calc(100% - 40px);
         }
         table {
             width: 100%;
@@ -70,7 +69,6 @@
     <script>
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('hidden');
-            document.querySelector('.container').classList.toggle('full-width');
         }
     </script>
 </head>
@@ -122,7 +120,7 @@
             </tr>
         </table>
         
-        <p>To find the price of a product with ID 1029, use the formula:</p>
+        <p>To find the price of a product with ID 102, use the formula:</p>
         <pre><code>=VLOOKUP(102, A2:C4, 3, FALSE)</code></pre>
         
         <p>This will return <strong>$0.50</strong> since Banana has ID 102.</p>
