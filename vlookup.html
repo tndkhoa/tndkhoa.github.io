@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLOOKUP Function - Excel Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #0073e6;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+        .sidebar.hidden {
+            transform: translateX(-250px);
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background: #0073e6;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .container {
+            flex-grow: 1;
+            margin-left: 270px; /* Điều chỉnh để khi menu mở, nội dung không bị che khuất */
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            transition: margin-left 0.3s ease;
+        }
+        .sidebar.hidden + .container {
+            margin-left: 20px; /* Khi menu ẩn, nội dung trở về vị trí ban đầu */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+    </style>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('hidden');
+            if (document.querySelector('.sidebar').classList.contains('hidden')) {
+                document.querySelector('.container').style.marginLeft = '20px';
+            } else {
+                document.querySelector('.container').style.marginLeft = '270px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="sidebar">
+        <h2>Function List</h2>
+        <ul>
+            <li><a href="vlookup.html">VLOOKUP</a></li>
+            <li><a href="hlookup.html">HLOOKUP</a></li>
+            <li><a href="#">INDEX</a></li>
+            <li><a href="#">MATCH</a></li>
+            <li><a href="#">IF</a></li>
+            <li><a href="#">SUM</a></li>
+            <li><a href="#">AVERAGE</a></li>
+            <li><a href="#">COUNT</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Excel VLOOKUP Function</h1>
+        <p>The VLOOKUP function in Excel is used to search for a value in the first column of a table and return a corresponding value from another column.</p>
+        
+        <h2>Syntax</h2>
+        <pre><code>VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code></pre>
+        
+        <h2>Example</h2>
+        <p>Consider the following table:</p>
+        
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>Apple</td>
+                <td>$1.00</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>Banana</td>
+                <td>$0.50</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>Orange</td>
+                <td>$0.75</td>
+            </tr>
+        </table>
+        
+        <p>To find the price of a product with ID 102, use the formula:</p>
+        <pre><code>=VLOOKUP(102, A2:C4, 3, FALSE)</code></pre>
+        
+        <p>This will return <strong>$0.50</strong> since Banana has ID 102.</p>
+        
+        <h2>Embedded Spreadsheet</h2>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://dailythuetruonggia-my.sharepoint.com/:x:/g/personal/tnd_khoa_dailythuetruonggia_vn/EfCLpbTDH9FEobfYlYaDT7IBEPAiGpM5v7HL7DLAR7--nA?e=FT3RlA&action=embedview&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Sheet1'!C4&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+    </div>
+</body>
+</html>

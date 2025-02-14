@@ -5,14 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ - Học Excel</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        nav {
+            background-color: #0073e6;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+        nav a:hover, .dropdown:hover .dropbtn {
+            background-color: #005bb5;
+        }
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 10px;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Học Excel Online. Pháp đã có mặt tại đầy kkk</h1>
+    <h1>Học Excel Online - Trang chủ</h1>
 
     <nav>
         <a href="index.html">Trang chủ</a> |
-        <a href="functions.html">Danh sách hàm Excel</a> |
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Danh sách hàm Excel ▼</a>
+            <div class="dropdown-content">
+                <a href="vlookup.html">Hàm vlookup</a>
+                <a href="hlookup.html">Hàm hlookup</a>
+                <a href="functions.html#date">Hàm Ngày tháng</a>
+                <a href="functions.html#lookup">Hàm Tra cứu</a>
+                <a href="functions.html#logical">Hàm Logic</a>
+            </div>
+        </div> |
         <a href="tutorials.html">Hướng dẫn</a> |
         <a href="contact.html">Liên hệ</a>
     </nav>
@@ -21,4 +70,3 @@
 
 </body>
 </html>
-

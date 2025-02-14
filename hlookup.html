@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLOOKUP Function - Excel Practice</title>
+    <title>Hàm HLOOKUP - Thực hành Excel</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,14 +40,14 @@
         }
         .container {
             flex-grow: 1;
-            margin-left: 270px; /* Điều chỉnh để khi menu mở, nội dung không bị che khuất */
+            margin-left: 300px;
             padding: 20px;
             background: white;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             transition: margin-left 0.3s ease;
         }
         .sidebar.hidden + .container {
-            margin-left: 20px; /* Khi menu ẩn, nội dung trở về vị trí ban đầu */
+            margin-left: 20px;
         }
         table {
             width: 100%;
@@ -80,10 +80,10 @@
 <body>
     <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
     <div class="sidebar">
-        <h2>Function List</h2>
+        <h2>Danh sách Hàm</h2>
         <ul>
-            <li><a href="#">VLOOKUP</a></li>
-            <li><a href="#">HLOOKUP</a></li>
+            <li><a href="vlookup.html">VLOOKUP</a></li>
+            <li><a href="hlookup.html">HLOOKUP</a></li>
             <li><a href="#">INDEX</a></li>
             <li><a href="#">MATCH</a></li>
             <li><a href="#">IF</a></li>
@@ -93,45 +93,43 @@
         </ul>
     </div>
     <div class="container">
-        <h1>Excel VLOOKUP Function</h1>
-        <p>The VLOOKUP function in Excel is used to search for a value in the first column of a table and return a corresponding value from another column.</p>
+        <h1>Hàm HLOOKUP trong Excel</h1>
+        <p>Hàm HLOOKUP trong Excel được sử dụng để tìm kiếm một giá trị trong hàng đầu tiên của một bảng và trả về giá trị tương ứng từ một hàng được chỉ định.</p>
         
-        <h2>Syntax</h2>
-        <pre><code>VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code></pre>
+        <h2>Cú pháp</h2>
+        <pre><code>HLOOKUP(giá_trị_cần_tìm, bảng_dữ_liệu, số_hàng, [phạm_vi_tìm_kiếm])</code></pre>
         
-        <h2>Example</h2>
-        <p>Consider the following table:</p>
+        <h2>Ví dụ</h2>
+        <p>Xét bảng sau:</p>
         
         <table>
             <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Price</th>
+                <th></th>
+                <th>101</th>
+                <th>102</th>
+                <th>103</th>
             </tr>
             <tr>
-                <td>101</td>
-                <td>Apple</td>
+                <td>Tên sản phẩm</td>
+                <td>Táo</td>
+                <td>Chuối</td>
+                <td>Cam</td>
+            </tr>
+            <tr>
+                <td>Giá</td>
                 <td>$1.00</td>
-            </tr>
-            <tr>
-                <td>102</td>
-                <td>Banana</td>
                 <td>$0.50</td>
-            </tr>
-            <tr>
-                <td>103</td>
-                <td>Orange</td>
                 <td>$0.75</td>
             </tr>
         </table>
         
-        <p>To find the price of a product with ID 102, use the formula:</p>
-        <pre><code>=VLOOKUP(102, A2:C4, 3, FALSE)</code></pre>
+        <p>Để tìm giá của sản phẩm có mã 102, sử dụng công thức:</p>
+        <pre><code>=HLOOKUP(102, A1:D3, 3, FALSE)</code></pre>
         
-        <p>This will return <strong>$0.50</strong> since Banana has ID 102.</p>
+        <p>Công thức này sẽ trả về <strong>$0.50</strong> vì Chuối có mã 102.</p>
         
-        <h2>Embedded Spreadsheet</h2>
-        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://dailythuetruonggia-my.sharepoint.com/:x:/g/personal/tnd_khoa_dailythuetruonggia_vn/EfCLpbTDH9FEobfYlYaDT7IBEPAiGpM5v7HL7DLAR7--nA?e=FT3RlA&action=embedview&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Sheet1'!C4&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+        <h2>Bảng tính nhúng</h2>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://dailythuetruonggia-my.sharepoint.com/:x:/g/personal/dt_phap_dailythuetruonggia_vn/EYb_kmlgW6FLnCBLsf2sDq4BD75z8dPSjX5BG-jwfkeIJg?e=94v1Xa&action=embedview&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Sheet1'!C4&wdInConfigurator=True&wdInConfigurator=True"></iframe>
     </div>
 </body>
 </html>
