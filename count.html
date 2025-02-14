@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm COUNT - Thực hành Excel</title>
+    <style>
+        // ... existing code ... (giữ nguyên phần CSS như file gốc)
+    </style>
+    <script>
+        // ... existing code ... (giữ nguyên phần JavaScript như file gốc)
+    </script>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="sidebar">
+        // ... existing code ... (giữ nguyên phần menu như các file khác)
+    </div>
+    <div class="container">
+        <h1>Hàm COUNT trong Excel</h1>
+        <p>Hàm COUNT được sử dụng để đếm số lượng ô chứa số trong một vùng hoặc dãy được chỉ định.</p>
+        
+        <h2>Cú pháp</h2>
+        <pre><code>COUNT(value1, [value2], ...)</code></pre>
+        
+        <h2>Ví dụ</h2>
+        <p>Xét bảng sau:</p>
+        
+        <table>
+            <tr>
+                <th>Dữ liệu</th>
+                <th>Giá trị</th>
+            </tr>
+            <tr>
+                <td>Số 1</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Văn bản</td>
+                <td>ABC</td>
+            </tr>
+            <tr>
+                <td>Số 2</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Trống</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Số ô chứa số</td>
+                <td>=COUNT(B2:B5)</td>
+            </tr>
+        </table>
+
+        <h2>Đặc điểm quan trọng</h2>
+        <ul>
+            <li>Chỉ đếm các ô chứa số</li>
+            <li>Bỏ qua các ô trống</li>
+            <li>Bỏ qua các ô chứa văn bản</li>
+            <li>Đếm cả các ô chứa ngày tháng (vì Excel lưu ngày dưới dạng số)</li>
+        </ul>
+
+        <h2>Các trường hợp sử dụng</h2>
+        <ol>
+            <li>Đếm số lượng giá trị số trong một cột:
+                <pre><code>=COUNT(A:A)</code></pre>
+            </li>
+            <li>Đếm số lượng giá trị số trong nhiều vùng:
+                <pre><code>=COUNT(A1:A10,C1:C10)</code></pre>
+            </li>
+            <li>Đếm số lượng giá trị số trong các ô rời rạc:
+                <pre><code>=COUNT(A1,B5,D10)</code></pre>
+            </li>
+        </ol>
+    </div>
+</body>
+</html> 

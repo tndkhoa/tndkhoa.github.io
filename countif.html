@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm COUNTIF - Thực hành Excel</title>
+    <style>
+        // ... existing code ... (giữ nguyên phần CSS như file gốc)
+    </style>
+    <script>
+        // ... existing code ... (giữ nguyên phần JavaScript như file gốc)
+    </script>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="sidebar">
+        // ... existing code ... (giữ nguyên phần menu như các file khác)
+    </div>
+    <div class="container">
+        <h1>Hàm COUNTIF trong Excel</h1>
+        <p>Hàm COUNTIF được sử dụng để đếm số lượng ô thỏa mãn một điều kiện cụ thể trong một vùng.</p>
+        
+        <h2>Cú pháp</h2>
+        <pre><code>COUNTIF(range, criteria)</code></pre>
+        
+        <h2>Các tham số</h2>
+        <ul>
+            <li><strong>range:</strong> Vùng dữ liệu cần đếm</li>
+            <li><strong>criteria:</strong> Điều kiện đếm (có thể là số, văn bản, biểu thức so sánh)</li>
+        </ul>
+
+        <h2>Ví dụ</h2>
+        <p>Xét bảng điểm sau:</p>
+        
+        <table>
+            <tr>
+                <th>Học sinh</th>
+                <th>Điểm</th>
+            </tr>
+            <tr>
+                <td>Nam</td>
+                <td>8.5</td>
+            </tr>
+            <tr>
+                <td>Hoa</td>
+                <td>7.0</td>
+            </tr>
+            <tr>
+                <td>Minh</td>
+                <td>8.5</td>
+            </tr>
+            <tr>
+                <td>Số học sinh đạt điểm 8.5</td>
+                <td>=COUNTIF(B2:B4, 8.5)</td>
+            </tr>
+        </table>
+
+        <h2>Các cách sử dụng phổ biến</h2>
+        <ol>
+            <li>Đếm với giá trị chính xác:
+                <pre><code>=COUNTIF(A1:A10, "Hà Nội")</code></pre>
+            </li>
+            <li>Đếm với điều kiện so sánh:
+                <pre><code>=COUNTIF(B1:B10, ">80")</code></pre>
+            </li>
+            <li>Đếm với ký tự đại diện:
+                <pre><code>=COUNTIF(A1:A10, "H*")</code></pre>
+            </li>
+        </ol>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Có thể sử dụng các toán tử so sánh: >, <, >=, <=, <></li>
+            <li>Sử dụng dấu * làm ký tự đại diện cho nhiều ký tự</li>
+            <li>Sử dụng dấu ? làm ký tự đại diện cho một ký tự</li>
+            <li>Điều kiện văn bản phải được đặt trong dấu ngoặc kép</li>
+        </ul>
+    </div>
+</body>
+</html> 

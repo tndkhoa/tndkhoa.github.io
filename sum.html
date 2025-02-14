@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm SUM - Thực hành Excel</title>
+    <style>
+        // ... existing code ... (giữ nguyên phần CSS như file gốc)
+    </style>
+    <script>
+        // ... existing code ... (giữ nguyên phần JavaScript như file gốc)
+    </script>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <div class="sidebar">
+        <h2>Danh sách Hàm</h2>
+        <ul>
+            <li><a href="vlookup.html">VLOOKUP</a></li>
+            <li><a href="hlookup.html">HLOOKUP</a></li>
+            <li><a href="#">INDEX</a></li>
+            <li><a href="#">MATCH</a></li>
+            <li><a href="#">IF</a></li>
+            <li><a href="sum.html">SUM</a></li>
+            <li><a href="#">AVERAGE</a></li>
+            <li><a href="#">COUNT</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1>Hàm SUM trong Excel</h1>
+        <p>Hàm SUM là một trong những hàm cơ bản và thường được sử dụng nhất trong Excel. Nó dùng để tính tổng của một dãy số hoặc một vùng các ô.</p>
+        
+        <h2>Cú pháp</h2>
+        <pre><code>SUM(số1, [số2], ...)</code></pre>
+        <p>hoặc</p>
+        <pre><code>SUM(vùng1, [vùng2], ...)</code></pre>
+        
+        <h2>Ví dụ</h2>
+        <p>Xét bảng sau:</p>
+        
+        <table>
+            <tr>
+                <th>Tháng</th>
+                <th>Doanh thu</th>
+            </tr>
+            <tr>
+                <td>Tháng 1</td>
+                <td>1,000,000</td>
+            </tr>
+            <tr>
+                <td>Tháng 2</td>
+                <td>1,500,000</td>
+            </tr>
+            <tr>
+                <td>Tháng 3</td>
+                <td>2,000,000</td>
+            </tr>
+            <tr>
+                <td>Tổng cộng</td>
+                <td>=SUM(B2:B4)</td>
+            </tr>
+        </table>
+        
+        <h2>Các cách sử dụng phổ biến</h2>
+        <ol>
+            <li>Tính tổng một vùng liên tục:
+                <pre><code>=SUM(A1:A10)</code></pre>
+            </li>
+            <li>Tính tổng các số riêng lẻ:
+                <pre><code>=SUM(A1, B1, C1)</code></pre>
+            </li>
+            <li>Tính tổng nhiều vùng:
+                <pre><code>=SUM(A1:A10, C1:C10)</code></pre>
+            </li>
+        </ol>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Hàm SUM bỏ qua các ô trống và các ô chứa văn bản</li>
+            <li>Có thể kết hợp SUM với các hàm khác</li>
+            <li>Có thể sử dụng phím tắt Alt + = để nhanh chóng tính tổng</li>
+        </ul>
+        
+        <h2>Bảng tính nhúng</h2>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://dailythuetruonggia-my.sharepoint.com/:x:/g/personal/dt_phap_dailythuetruonggia_vn/EYb_kmlgW6FLnCBLsf2sDq4BD75z8dPSjX5BG-jwfkeIJg?e=94v1Xa&action=embedview&wdAllowInteractivity=False&AllowTyping=True&ActiveCell='Sheet1'!C4&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+    </div>
+</body>
+</html> 
