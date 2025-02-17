@@ -11,7 +11,67 @@
 </head>
 <body>
     <div class="container">
-        <!-- Nội dung trang -->
+        <h1>Hàm VLOOKUP trong Excel</h1>
+        <p>Hàm VLOOKUP là một trong những hàm tìm kiếm và tham chiếu quan trọng nhất trong Excel. Nó cho phép bạn tìm kiếm một giá trị trong cột đầu tiên bên trái của một bảng và trả về giá trị từ bất kỳ cột nào trong cùng hàng của bảng đó.</p>
+        
+        <h2>Cú pháp</h2>
+        <pre><code>VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code></pre>
+        
+        <h2>Các tham số</h2>
+        <ul>
+            <li><strong>lookup_value:</strong> Giá trị bạn muốn tìm kiếm</li>
+            <li><strong>table_array:</strong> Phạm vi dữ liệu bạn muốn tìm kiếm trong đó</li>
+            <li><strong>col_index_num:</strong> Số thứ tự cột chứa giá trị bạn muốn trả về</li>
+            <li><strong>range_lookup:</strong> TRUE = tìm kiếm tương đối, FALSE = tìm kiếm chính xác (tùy chọn)</li>
+        </ul>
+
+        <h2>Ví dụ</h2>
+        <p>Xét bảng dữ liệu sau:</p>
+        
+        <table>
+            <tr>
+                <th>Mã SP</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+            </tr>
+            <tr>
+                <td>SP001</td>
+                <td>Laptop Dell</td>
+                <td>15,000,000</td>
+            </tr>
+            <tr>
+                <td>SP002</td>
+                <td>Máy in HP</td>
+                <td>5,000,000</td>
+            </tr>
+            <tr>
+                <td>SP003</td>
+                <td>Chuột Logitech</td>
+                <td>500,000</td>
+            </tr>
+        </table>
+
+        <p>Để tìm tên sản phẩm có mã SP002:</p>
+        <pre><code>=VLOOKUP("SP002", A2:C4, 2, FALSE)</code></pre>
+        <p>Kết quả: Máy in HP</p>
+
+        <h2>Các trường hợp sử dụng phổ biến</h2>
+        <ol>
+            <li>Tìm kiếm thông tin sản phẩm dựa trên mã sản phẩm</li>
+            <li>Tra cứu giá bán dựa trên mã sản phẩm</li>
+            <li>Tìm thông tin nhân viên dựa trên mã nhân viên</li>
+        </ol>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Giá trị cần tìm phải nằm ở cột ngoài cùng bên trái của bảng dữ liệu</li>
+            <li>Số thứ tự cột bắt đầu từ 1, không phải từ 0</li>
+            <li>Nên sử dụng FALSE cho range_lookup để tìm kiếm chính xác</li>
+            <li>Dữ liệu cần được sắp xếp tăng dần nếu sử dụng TRUE cho range_lookup</li>
+        </ul>
+
+        <h2>Bảng tính mẫu</h2>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=E5BD4D8E6B4F9EE4%21138&authkey=%21AHnY0Uy8S5HKQcM&em=2&wdAllowInteractivity=False&Item='Sheet1'!A1%3AD11&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
     </div>
 </body>
 </html>
