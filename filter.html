@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm FILTER - Thực hành Excel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hàm FILTER trong Excel</h1>
+        
+        <h2>Giới thiệu</h2>
+        <p>Hàm FILTER cho phép bạn lọc một dải dữ liệu dựa trên một hoặc nhiều điều kiện, trả về một mảng động với các kết quả phù hợp.</p>
+
+        <h2>Cú pháp</h2>
+        <pre><code>FILTER(array, include, [if_empty])</code></pre>
+
+        <h2>Các tham số</h2>
+        <ul>
+            <li><strong>array:</strong> Dải dữ liệu cần lọc</li>
+            <li><strong>include:</strong> Điều kiện lọc (TRUE/FALSE)</li>
+            <li><strong>if_empty:</strong> Giá trị trả về nếu không có kết quả</li>
+        </ul>
+
+        <h2>Ví dụ 1: Lọc đơn giản</h2>
+        <table>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Danh mục</th>
+                <th>Giá</th>
+                <th>Tồn kho</th>
+            </tr>
+            <tr>
+                <td>Laptop Dell</td>
+                <td>Laptop</td>
+                <td>15,000,000</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Chuột Logitech</td>
+                <td>Phụ kiện</td>
+                <td>500,000</td>
+                <td>50</td>
+            </tr>
+        </table>
+
+        <p>Lọc sản phẩm có giá trên 1 triệu:</p>
+        <pre><code>=FILTER(A2:D10, C2:C10>1000000, "Không có sản phẩm")</code></pre>
+
+        <h2>Ví dụ 2: Lọc nhiều điều kiện</h2>
+        <p>Lọc sản phẩm thuộc danh mục Laptop VÀ còn hàng:</p>
+        <pre><code>=FILTER(A2:D10, (B2:B10="Laptop")*(D2:D10>0), "Hết hàng")</code></pre>
+
+        <h2>Ví dụ 3: Kết hợp với hàm khác</h2>
+        <p>Lọc và tính tổng giá trị tồn kho:</p>
+        <pre><code>=SUM(FILTER(C2:C10*D2:D10, B2:B10="Laptop"))</code></pre>
+
+        <h2>Các trường hợp sử dụng</h2>
+        <ul>
+            <li>Lọc danh sách sản phẩm theo điều kiện</li>
+            <li>Tạo báo cáo động</li>
+            <li>Phân tích dữ liệu theo nhiều tiêu chí</li>
+            <li>Tạo dashboard tương tác</li>
+        </ul>
+
+        <h2>Ưu điểm của FILTER</h2>
+        <ul>
+            <li>Kết quả là mảng động, tự động điều chỉnh</li>
+            <li>Có thể kết hợp nhiều điều kiện</li>
+            <li>Dễ dàng xử lý trường hợp không có kết quả</li>
+            <li>Hiệu suất tốt với dữ liệu lớn</li>
+        </ul>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Chỉ có từ Excel 365 trở lên</li>
+            <li>Cần đủ không gian để hiển thị kết quả</li>
+            <li>Điều kiện phải trả về TRUE/FALSE</li>
+            <li>Có thể kết hợp với các hàm mảng khác</li>
+        </ul>
+
+        <h2>Bài tập thực hành</h2>
+        <p>Tải file Excel mẫu để thực hành:</p>
+        <a href="files/filter_examples.xlsx" class="download-btn">
+            <i class="fas fa-download"></i> Tải file thực hành
+        </a>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm GROUPBY - Thực hành Excel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hàm GROUPBY trong Excel</h1>
+
+        <h2>Giới thiệu</h2>
+        <p>GROUPBY là hàm mạnh mẽ cho phép nhóm và tổng hợp dữ liệu theo nhiều tiêu chí khác nhau, tương tự như GROUP BY trong SQL. Hàm này đặc biệt hữu ích khi bạn cần phân tích dữ liệu lớn và tạo báo cáo tổng hợp.</p>
+
+        <h2>Cú pháp</h2>
+        <pre><code>GROUPBY(array, groupby_array1, [groupby_array2], function, [argument1], [argument2])</code></pre>
+
+        <h2>Các tham số</h2>
+        <ul>
+            <li><strong>array:</strong> Dải dữ liệu cần tính toán</li>
+            <li><strong>groupby_array1:</strong> Cột dùng để nhóm chính</li>
+            <li><strong>groupby_array2:</strong> Cột nhóm thứ 2 (tùy chọn)</li>
+            <li><strong>function:</strong> Hàm tính toán (SUM, AVERAGE, COUNT...)</li>
+            <li><strong>argument1, argument2:</strong> Tham số bổ sung cho hàm</li>
+        </ul>
+
+        <h2>Ví dụ 1: Báo cáo doanh số bán hàng</h2>
+        <div class="example-box">
+            <h3>Dữ liệu mẫu:</h3>
+            <table>
+                <tr>
+                    <th>Ngày bán</th>
+                    <th>Danh mục</th>
+                    <th>Sản phẩm</th>
+                    <th>Doanh số</th>
+                    <th>Số lượng</th>
+                </tr>
+                <tr>
+                    <td>01/01/2024</td>
+                    <td>Laptop</td>
+                    <td>Dell XPS</td>
+                    <td>25,000,000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>01/01/2024</td>
+                    <td>Phụ kiện</td>
+                    <td>Chuột</td>
+                    <td>500,000</td>
+                    <td>5</td>
+                </tr>
+                <!-- Thêm dữ liệu mẫu -->
+            </table>
+
+            <h3>Công thức tổng hợp theo danh mục:</h3>
+            <pre><code>=GROUPBY(D2:D100, B2:B100, LAMBDA(x,SUM(x)))</code></pre>
+            
+            <h3>Kết quả:</h3>
+            <table>
+                <tr>
+                    <th>Danh mục</th>
+                    <th>Tổng doanh số</th>
+                </tr>
+                <tr>
+                    <td>Laptop</td>
+                    <td>150,000,000</td>
+                </tr>
+                <tr>
+                    <td>Phụ kiện</td>
+                    <td>25,000,000</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Ví dụ 2: Phân tích đa chiều</h2>
+        <div class="example-box">
+            <h3>Công thức phân tích theo danh mục và tháng:</h3>
+            <pre><code>=LET(
+    sales, D2:D100,
+    categories, B2:B100,
+    months, MONTH(A2:A100),
+    GROUPBY(sales, categories, months, LAMBDA(x,SUM(x)))
+)</code></pre>
+        </div>
+
+        <h2>Ví dụ 3: Tính nhiều chỉ số</h2>
+        <div class="example-box">
+            <h3>Tính tổng doanh số và trung bình đơn hàng:</h3>
+            <pre><code>=LET(
+    sales, D2:D100,
+    categories, B2:B100,
+    HSTACK(
+        GROUPBY(sales, categories, LAMBDA(x,SUM(x))),
+        GROUPBY(sales, categories, LAMBDA(x,AVERAGE(x)))
+    )
+)</code></pre>
+        </div>
+
+        <h2>Ví dụ 4: Phân tích nâng cao</h2>
+        <div class="example-box">
+            <h3>Tính tỷ lệ đóng góp doanh số:</h3>
+            <pre><code>=LET(
+    sales, D2:D100,
+    categories, B2:B100,
+    total_sales, SUM(sales),
+    category_sales, GROUPBY(sales, categories, LAMBDA(x,SUM(x))),
+    category_sales / total_sales
+)</code></pre>
+        </div>
+
+        <h2>Các trường hợp sử dụng phổ biến</h2>
+        <ul>
+            <li>Báo cáo doanh số theo nhiều chiều</li>
+            <li>Phân tích xu hướng theo thời gian</li>
+            <li>Tính toán KPI theo nhóm</li>
+            <li>Phân tích hiệu suất bán hàng</li>
+            <li>Báo cáo tài chính tổng hợp</li>
+        </ul>
+
+        <h2>Ưu điểm của GROUPBY</h2>
+        <ul>
+            <li>Xử lý dữ liệu nhanh hơn PivotTable</li>
+            <li>Kết quả là mảng động, tự động cập nhật</li>
+            <li>Có thể kết hợp với các hàm mảng khác</li>
+            <li>Linh hoạt trong việc tính toán</li>
+        </ul>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Chỉ có từ Excel 365 trở lên</li>
+            <li>Cần đủ không gian để hiển thị kết quả</li>
+            <li>Nên kết hợp với LET để tối ưu hiệu suất</li>
+            <li>Có thể gặp giới hạn về bộ nhớ với dữ liệu rất lớn</li>
+        </ul>
+
+        <h2>Thực hành</h2>
+        <div class="practice-section">
+            <h3>File thực hành:</h3>
+            <a href="files/groupby_examples.xlsx" class="download-btn">
+                <i class="fas fa-download"></i> Tải file thực hành
+            </a>
+            
+            <h3>Bài tập:</h3>
+            <ol>
+                <li>Tạo báo cáo doanh số theo danh mục và tháng</li>
+                <li>Tính tỷ lệ đóng góp doanh số của từng sản phẩm</li>
+                <li>Phân tích xu hướng bán hàng theo quý</li>
+                <li>Tạo dashboard động sử dụng GROUPBY</li>
+            </ol>
+        </div>
+
+        <div class="tips-section">
+            <h2>Mẹo sử dụng hiệu quả</h2>
+            <ul>
+                <li>Sử dụng LET để tái sử dụng biến và tối ưu hiệu suất</li>
+                <li>Kết hợp với FILTER để lọc dữ liệu trước khi nhóm</li>
+                <li>Sử dụng LAMBDA để tạo hàm tính toán tùy chỉnh</li>
+                <li>Đặt tên cho các vùng dữ liệu để dễ quản lý</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

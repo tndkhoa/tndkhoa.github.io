@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm LET - Thực hành Excel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hàm LET trong Excel</h1>
+
+        <h2>Giới thiệu</h2>
+        <p>Hàm LET cho phép bạn tạo và sử dụng các biến tạm thời trong công thức Excel, giúp tối ưu hiệu suất và làm cho công thức dễ đọc hơn.</p>
+
+        <h2>Cú pháp</h2>
+        <pre><code>LET(name1, value1, [name2, value2, ...], calculation)</code></pre>
+
+        <h2>Các tham số</h2>
+        <ul>
+            <li><strong>name1, name2, ...:</strong> Tên biến</li>
+            <li><strong>value1, value2, ...:</strong> Giá trị hoặc công thức cho biến</li>
+            <li><strong>calculation:</strong> Công thức sử dụng các biến đã định nghĩa</li>
+        </ul>
+
+        <h2>Ví dụ 1: Tính toán cơ bản</h2>
+        <div class="example-box">
+            <h3>Tính diện tích và chu vi hình chữ nhật:</h3>
+            <pre><code>=LET(
+    chieu_dai, 10,
+    chieu_rong, 5,
+    dien_tich, chieu_dai * chieu_rong,
+    chu_vi, 2 * (chieu_dai + chieu_rong),
+    HSTACK(dien_tich, chu_vi)
+)</code></pre>
+            
+            <h3>Kết quả:</h3>
+            <table>
+                <tr>
+                    <th>Diện tích</th>
+                    <th>Chu vi</th>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td>30</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Ví dụ 2: Phân tích doanh số</h2>
+        <div class="example-box">
+            <h3>Tính các chỉ số kinh doanh:</h3>
+            <pre><code>=LET(
+    doanh_so, D2:D100,
+    chi_phi, E2:E100,
+    loi_nhuan, doanh_so - chi_phi,
+    ty_suat, loi_nhuan / doanh_so,
+    VSTACK(
+        SUM(loi_nhuan),
+        AVERAGE(ty_suat),
+        MAX(doanh_so),
+        MIN(chi_phi)
+    )
+)</code></pre>
+        </div>
+
+        <h2>Ví dụ 3: Kết hợp với hàm mảng</h2>
+        <div class="example-box">
+            <h3>Phân tích dữ liệu theo nhóm:</h3>
+            <pre><code>=LET(
+    data, A2:E100,
+    categories, B2:B100,
+    sales, D2:D100,
+    filtered_data, FILTER(data, sales > 1000000),
+    grouped_data, GROUPBY(
+        INDEX(filtered_data, 0, 4),
+        INDEX(filtered_data, 0, 2),
+        LAMBDA(x, SUM(x))
+    ),
+    grouped_data
+)</code></pre>
+        </div>
+
+        <h2>Ví dụ 4: Tối ưu hiệu suất</h2>
+        <div class="example-box">
+            <h3>Tránh tính toán lặp lại:</h3>
+            <pre><code>=LET(
+    prices, B2:B100,
+    quantities, C2:C100,
+    total_value, SUM(prices * quantities),
+    avg_price, AVERAGE(prices),
+    items_above_avg, COUNTIF(prices, ">" & avg_price),
+    percentage, items_above_avg / COUNT(prices),
+    VSTACK(total_value, items_above_avg, percentage)
+)</code></pre>
+        </div>
+
+        <h2>Các trường hợp sử dụng</h2>
+        <ul>
+            <li>Tối ưu hóa công thức phức tạp</li>
+            <li>Tránh tính toán lặp lại</li>
+            <li>Làm rõ logic của công thức</li>
+            <li>Kết hợp với các hàm mảng</li>
+            <li>Tạo báo cáo động</li>
+        </ul>
+
+        <h2>Ưu điểm của LET</h2>
+        <ul>
+            <li>Cải thiện hiệu suất tính toán</li>
+            <li>Dễ đọc và bảo trì công thức</li>
+            <li>Giảm lỗi trong công thức phức tạp</li>
+            <li>Tái sử dụng kết quả trung gian</li>
+        </ul>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Chỉ có từ Excel 365 trở lên</li>
+            <li>Tên biến phải là duy nhất</li>
+            <li>Có thể lồng nhiều hàm LET</li>
+            <li>Giới hạn 126 cặp name-value</li>
+        </ul>
+
+        <h2>Thực hành</h2>
+        <div class="practice-section">
+            <h3>File thực hành:</h3>
+            <a href="files/let_examples.xlsx" class="download-btn">
+                <i class="fas fa-download"></i> Tải file thực hành
+            </a>
+            
+            <h3>Bài tập:</h3>
+            <ol>
+                <li>Tối ưu hóa công thức tính KPI</li>
+                <li>Tạo báo cáo phân tích doanh số</li>
+                <li>Xây dựng công thức tính lương và thưởng</li>
+                <li>Phân tích dữ liệu bán hàng theo nhiều chiều</li>
+            </ol>
+        </div>
+
+        <div class="tips-section">
+            <h2>Mẹo sử dụng hiệu quả</h2>
+            <ul>
+                <li>Đặt tên biến có ý nghĩa và dễ hiểu</li>
+                <li>Sử dụng comment để giải thích logic phức tạp</li>
+                <li>Chia nhỏ công thức phức tạp thành các bước</li>
+                <li>Kết hợp với LAMBDA để tạo hàm tùy chỉnh</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

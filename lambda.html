@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm LAMBDA - Thực hành Excel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hàm LAMBDA trong Excel</h1>
+
+        <h2>Giới thiệu</h2>
+        <p>LAMBDA cho phép bạn tạo các hàm tùy chỉnh trong Excel mà không cần VBA. Đây là một công cụ mạnh mẽ để tạo các hàm phức tạp và tái sử dụng code.</p>
+
+        <h2>Cú pháp</h2>
+        <pre><code>LAMBDA(parameter1, [parameter2, ...], calculation)</code></pre>
+
+        <h2>Các tham số</h2>
+        <ul>
+            <li><strong>parameter1, parameter2, ...:</strong> Tên các tham số đầu vào</li>
+            <li><strong>calculation:</strong> Công thức sử dụng các tham số</li>
+        </ul>
+
+        <h2>Ví dụ 1: Hàm tính toán cơ bản</h2>
+        <div class="example-box">
+            <h3>Tạo hàm tính lợi nhuận:</h3>
+            <pre><code>=LAMBDA(doanh_thu, chi_phi, 
+    LET(
+        loi_nhuan, doanh_thu - chi_phi,
+        ty_suat, loi_nhuan / doanh_thu,
+        HSTACK(loi_nhuan, ty_suat)
+    )
+)</code></pre>
+
+            <h3>Đặt tên cho hàm:</h3>
+            <pre><code>Name: TinhLoiNhuan
+=LAMBDA(doanh_thu, chi_phi, 
+    LET(
+        loi_nhuan, doanh_thu - chi_phi,
+        ty_suat, loi_nhuan / doanh_thu,
+        HSTACK(loi_nhuan, ty_suat)
+    )
+)</code></pre>
+
+            <h3>Sử dụng:</h3>
+            <pre><code>=TinhLoiNhuan(B2:B10, C2:C10)</code></pre>
+        </div>
+
+        <h2>Ví dụ 2: Xử lý dữ liệu mảng</h2>
+        <div class="example-box">
+            <h3>Hàm phân tích doanh số:</h3>
+            <pre><code>Name: PhanTichDoanhSo
+=LAMBDA(doanh_so, danh_muc,
+    LET(
+        tong_ds, GROUPBY(doanh_so, danh_muc, LAMBDA(x, SUM(x))),
+        tb_ds, GROUPBY(doanh_so, danh_muc, LAMBDA(x, AVERAGE(x))),
+        max_ds, GROUPBY(doanh_so, danh_muc, LAMBDA(x, MAX(x))),
+        HSTACK(tong_ds, tb_ds, max_ds)
+    )
+)</code></pre>
+        </div>
+
+        <h2>Ví dụ 3: Hàm với điều kiện</h2>
+        <div class="example-box">
+            <h3>Hàm đánh giá hiệu suất:</h3>
+            <pre><code>Name: DanhGiaHieuSuat
+=LAMBDA(thuc_te, muc_tieu,
+    LET(
+        ty_le, thuc_te / muc_tieu,
+        danh_gia, IF(ty_le >= 1, "Đạt", 
+                    IF(ty_le >= 0.8, "Cần cải thiện", "Không đạt")),
+        CHOOSE(1, ty_le, danh_gia)
+    )
+)</code></pre>
+        </div>
+
+        <h2>Ví dụ 4: Hàm lồng nhau</h2>
+        <div class="example-box">
+            <h3>Tạo hàm phức tạp:</h3>
+            <pre><code>Name: PhanTichBanHang
+=LAMBDA(du_lieu, thang,
+    LET(
+        loc_thang, FILTER(du_lieu, MONTH(INDEX(du_lieu,0,1))=thang),
+        tinh_tong, LAMBDA(x, SUM(x)),
+        tinh_tb, LAMBDA(x, AVERAGE(x)),
+        ket_qua, HSTACK(
+            tinh_tong(INDEX(loc_thang,0,4)),
+            tinh_tb(INDEX(loc_thang,0,4))
+        ),
+        ket_qua
+    )
+)</code></pre>
+        </div>
+
+        <h2>Các trường hợp sử dụng</h2>
+        <ul>
+            <li>Tạo các hàm tùy chỉnh phức tạp</li>
+            <li>Tái sử dụng code trong nhiều công thức</li>
+            <li>Xử lý dữ liệu theo logic riêng</li>
+            <li>Tạo các hàm phân tích dữ liệu</li>
+            <li>Chuẩn hóa cách tính toán</li>
+        </ul>
+
+        <h2>Ưu điểm của LAMBDA</h2>
+        <ul>
+            <li>Không cần VBA</li>
+            <li>Dễ bảo trì và cập nhật</li>
+            <li>Hiệu suất tốt</li>
+            <li>Tái sử dụng code hiệu quả</li>
+            <li>Tích hợp tốt với các hàm mảng khác</li>
+        </ul>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Chỉ có từ Excel 365 trở lên</li>
+            <li>Cần đặt tên để tái sử dụng</li>
+            <li>Giới hạn 253 tham số</li>
+            <li>Nên kết hợp với LET</li>
+        </ul>
+
+        <h2>Thực hành</h2>
+        <div class="practice-section">
+            <h3>File thực hành:</h3>
+            <a href="files/lambda_examples.xlsx" class="download-btn">
+                <i class="fas fa-download"></i> Tải file thực hành
+            </a>
+            
+            <h3>Bài tập:</h3>
+            <ol>
+                <li>Tạo hàm tính lương và thưởng</li>
+                <li>Xây dựng hàm phân tích doanh số</li>
+                <li>Tạo hàm xử lý dữ liệu khách hàng</li>
+                <li>Xây dựng hệ thống đánh giá KPI</li>
+            </ol>
+        </div>
+
+        <div class="tips-section">
+            <h2>Mẹo sử dụng hiệu quả</h2>
+            <ul>
+                <li>Đặt tên có ý nghĩa cho hàm và tham số</li>
+                <li>Sử dụng LET để tổ chức code</li>
+                <li>Chia nhỏ logic phức tạp thành các hàm nhỏ hơn</li>
+                <li>Thêm comment để giải thích logic</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

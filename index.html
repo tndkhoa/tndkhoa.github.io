@@ -3,93 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thực hành Excel - Trang chủ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Học Excel - Tổng hợp các hàm Excel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
 </head>
 <body>
+   
+
+    <!-- Nội dung chính -->
     <div class="container">
-        <h1>Thực hành các hàm Excel cơ bản</h1>
-        <p>Chào mừng bạn đến với trang web thực hành Excel! Tại đây, bạn sẽ học cách sử dụng các hàm Excel phổ biến và quan trọng nhất.</p>
+        <header class="main-header">
+            <h1>Tổng hợp các hàm Excel</h1>
+            <p>Hướng dẫn chi tiết các hàm Excel từ cơ bản đến nâng cao</p>
+        </header>
 
-        <h2>Các hàm Excel cơ bản</h2>
-        <div class="function-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="images/vlookup-icon.png" alt="VLOOKUP">
+        <div class="function-groups">
+            <!-- Nhóm 1: Hàm Tìm kiếm và Tham chiếu -->
+            <section class="function-group">
+                <h2><i class="fas fa-search"></i> Hàm Tìm kiếm và Tham chiếu</h2>
+                <div class="function-cards">
+                    <div class="function-card">
+                        <h3>VLOOKUP</h3>
+                        <p>Tìm kiếm dữ liệu theo cột dọc</p>
+                        <a href="vlookup.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
+                    <div class="function-card">
+                        <h3>HLOOKUP</h3>
+                        <p>Tìm kiếm dữ liệu theo hàng ngang</p>
+                        <a href="hlookup.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
+                    <div class="function-card highlight">
+                        <h3>XLOOKUP</h3>
+                        <p>Tìm kiếm nâng cao hai chiều</p>
+                        
+                        <a href="xlookup.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
                 </div>
-                <h3>VLOOKUP</h3>
-                <p>Tìm kiếm và trả về giá trị từ một cột trong bảng dữ liệu.</p>
-                <a href="vlookup.html" class="feature-link">Xem chi tiết</a>
-            </div>
+            </section>
 
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="images/hlookup-icon.png" alt="HLOOKUP">
+            <!-- Nhóm 2: Hàm Xử lý Dữ liệu -->
+            <section class="function-group">
+                <h2><i class="fas fa-database"></i> Hàm Xử lý Dữ liệu</h2>
+                <div class="function-cards">
+                    <div class="function-card highlight">
+                        <h3>FILTER</h3>
+                        <p>Lọc dữ liệu theo nhiều điều kiện</p>
+                        
+                        <a href="filter.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
+                    <div class="function-card highlight">
+                        <h3>GROUPBY</h3>
+                        <p>Nhóm và tổng hợp dữ liệu</p>
+                        
+                        <a href="groupby.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
+                    <div class="function-card highlight">
+                        <h3>PIVOTBY</h3>
+                        <p>Tạo bảng pivot động</p>
+                        
+                        <a href="pivotby.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
                 </div>
-                <h3>HLOOKUP</h3>
-                <p>Tìm kiếm theo chiều ngang và trả về giá trị từ một hàng trong bảng.</p>
-                <a href="hlookup.html" class="feature-link">Xem chi tiết</a>
-            </div>
+            </section>
 
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="images/index-icon.png" alt="INDEX">
+            <!-- Nhóm 3: Hàm Lập trình -->
+            <section class="function-group">
+                <h2><i class="fas fa-code"></i> Hàm Lập trình</h2>
+                <div class="function-cards">
+                    <div class="function-card highlight">
+                        <h3>LET</h3>
+                        <p>Tạo biến tạm thời trong công thức</p>
+                        
+                        <a href="let.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
+                    <div class="function-card highlight">
+                        <h3>LAMBDA</h3>
+                        <p>Tạo hàm tùy chỉnh không cần VBA</p>
+                        
+                        <a href="lambda.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
                 </div>
-                <h3>INDEX</h3>
-                <p>Trả về giá trị tại một vị trí cụ thể trong một phạm vi.</p>
-                <a href="excel-index.html" class="feature-link">Xem chi tiết</a>
-            </div>
+            </section>
 
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="images/sum-icon.png" alt="SUM">
+            <!-- Nhóm 4: Hàm Thống kê -->
+            <section class="function-group">
+                <h2><i class="fas fa-chart-bar"></i> Hàm Thống kê</h2>
+                <div class="function-cards">
+                    <div class="function-card">
+                        <h3>SUM</h3>
+                        <p>Tính tổng dữ liệu</p>
+                        <a href="sum.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
+                    <div class="function-card">
+                        <h3>COUNT</h3>
+                        <p>Đếm số lượng ô có dữ liệu</p>
+                        <a href="count.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
+                    <div class="function-card">
+                        <h3>COUNTIF</h3>
+                        <p>Đếm có điều kiện</p>
+                        <a href="countif.html" class="btn-learn">Tìm hiểu thêm</a>
+                    </div>
                 </div>
-                <h3>SUM</h3>
-                <p>Tính tổng các giá trị số trong một phạm vi.</p>
-                <a href="sum.html" class="feature-link">Xem chi tiết</a>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="images/count-icon.png" alt="COUNT">
-                </div>
-                <h3>COUNT</h3>
-                <p>Đếm số lượng ô chứa số trong một phạm vi.</p>
-                <a href="count.html" class="feature-link">Xem chi tiết</a>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <img src="images/countif-icon.png" alt="COUNTIF">
-                </div>
-                <h3>COUNTIF</h3>
-                <p>Đếm số lượng ô thỏa mãn một điều kiện.</p>
-                <a href="countif.html" class="feature-link">Xem chi tiết</a>
-            </div>
+            </section>
         </div>
 
-        <h2>Tại sao nên học Excel?</h2>
-        <div class="info-section">
-            <ul>
-                <li>Excel là công cụ phổ biến trong môi trường làm việc văn phòng</li>
-                <li>Giúp quản lý và phân tích dữ liệu hiệu quả</li>
-                <li>Tăng năng suất làm việc với các công thức và hàm tự động</li>
-                <li>Tạo báo cáo chuyên nghiệp và trực quan</li>
-            </ul>
-        </div>
-
-        <h2>Cách sử dụng trang web</h2>
-        <div class="info-section">
-            <ol>
-                <li>Chọn hàm bạn muốn học từ menu bên trái</li>
-                <li>Đọc kỹ phần giải thích và cú pháp</li>
-                <li>Làm theo các ví dụ thực hành</li>
-                <li>Thử nghiệm với bảng tính mẫu</li>
-            </ol>
-        </div>
+        <section class="quick-start">
+            <h2 class="text-align-center">Bắt đầu học Excel</h2>
+            <div class="quick-start-grid">
+                <div class="quick-start-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Khóa học cơ bản</h3>
+                    <p>Làm quen với các hàm Excel cơ bản</p>
+                    <a href="basic-course.html" class="btn-start">Bắt đầu</a>
+                </div>
+                <div class="quick-start-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Khóa học nâng cao</h3>
+                    <p>Tìm hiểu các hàm mới và nâng cao</p>
+                    <a href="advanced-course.html" class="btn-start">Khám phá</a>
+                </div>
+                <div class="quick-start-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Dự án thực tế</h3>
+                    <p>Áp dụng Excel vào công việc</p>
+                    <a href="projects.html" class="btn-start">Thực hành</a>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js" defer></script>
 </body>
 </html>

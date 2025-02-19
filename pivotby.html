@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm PIVOTBY - Thực hành Excel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hàm PIVOTBY trong Excel</h1>
+
+        <h2>Giới thiệu</h2>
+        <p>PIVOTBY là hàm mạnh mẽ cho phép tạo bảng pivot động mà không cần sử dụng PivotTable. Hàm này đặc biệt hữu ích khi bạn cần tạo báo cáo tổng hợp theo nhiều chiều.</p>
+
+        <h2>Cú pháp</h2>
+        <pre><code>PIVOTBY(values, rows, columns, [aggregation_function])</code></pre>
+
+        <h2>Các tham số</h2>
+        <ul>
+            <li><strong>values:</strong> Dữ liệu cần tổng hợp</li>
+            <li><strong>rows:</strong> Cột làm hàng trong pivot</li>
+            <li><strong>columns:</strong> Cột làm cột trong pivot</li>
+            <li><strong>aggregation_function:</strong> Hàm tổng hợp (mặc định là SUM)</li>
+        </ul>
+
+        <h2>Ví dụ 1: Báo cáo doanh số cơ bản</h2>
+        <div class="example-box">
+            <h3>Dữ liệu mẫu:</h3>
+            <table>
+                <tr>
+                    <th>Ngày</th>
+                    <th>Sản phẩm</th>
+                    <th>Khu vực</th>
+                    <th>Doanh số</th>
+                </tr>
+                <tr>
+                    <td>01/01/2024</td>
+                    <td>Laptop</td>
+                    <td>Miền Bắc</td>
+                    <td>25,000,000</td>
+                </tr>
+                <!-- Thêm dữ liệu mẫu -->
+            </table>
+
+            <h3>Tạo pivot theo sản phẩm và khu vực:</h3>
+            <pre><code>=LET(
+    du_lieu, D2:D100,
+    san_pham, B2:B100,
+    khu_vuc, C2:C100,
+    PIVOTBY(du_lieu, san_pham, khu_vuc, LAMBDA(x, SUM(x)))
+)</code></pre>
+        </div>
+
+        <h2>Ví dụ 2: Phân tích theo thời gian</h2>
+        <div class="example-box">
+            <h3>Phân tích doanh số theo tháng và danh mục:</h3>
+            <pre><code>=LET(
+    du_lieu, D2:D100,
+    thang, MONTH(A2:A100),
+    danh_muc, B2:B100,
+    pivot_data, PIVOTBY(du_lieu, danh_muc, thang, 
+        LAMBDA(x, SUM(x))
+    ),
+    HSTACK(
+        {"Danh mục"}, SEQUENCE(1, 12, 1, 1),
+        pivot_data
+    )
+)</code></pre>
+        </div>
+
+        <h2>Ví dụ 3: Phân tích đa chiều</h2>
+        <div class="example-box">
+            <h3>Tạo báo cáo với nhiều chỉ số:</h3>
+            <pre><code>=LET(
+    doanh_so, D2:D100,
+    so_luong, E2:E100,
+    san_pham, B2:B100,
+    khu_vuc, C2:C100,
+    
+    pivot_doanh_so, PIVOTBY(doanh_so, san_pham, khu_vuc, 
+        LAMBDA(x, SUM(x))
+    ),
+    pivot_so_luong, PIVOTBY(so_luong, san_pham, khu_vuc, 
+        LAMBDA(x, SUM(x))
+    ),
+    
+    VSTACK(
+        "Doanh số theo khu vực",
+        pivot_doanh_so,
+        "",
+        "Số lượng bán theo khu vực",
+        pivot_so_luong
+    )
+)</code></pre>
+        </div>
+
+        <h2>Ví dụ 4: Tính toán nâng cao</h2>
+        <div class="example-box">
+            <h3>Phân tích tỷ trọng và tăng trưởng:</h3>
+            <pre><code>=LET(
+    du_lieu, D2:D100,
+    ky_nay, FILTER(du_lieu, YEAR(A2:A100)=2024),
+    ky_truoc, FILTER(du_lieu, YEAR(A2:A100)=2023),
+    san_pham, B2:B100,
+    khu_vuc, C2:C100,
+    
+    pivot_ky_nay, PIVOTBY(ky_nay, san_pham, khu_vuc),
+    pivot_ky_truoc, PIVOTBY(ky_truoc, san_pham, khu_vuc),
+    
+    tang_truong, (pivot_ky_nay - pivot_ky_truoc) / pivot_ky_truoc,
+    
+    VSTACK(
+        "Tăng trưởng theo khu vực",
+        tang_truong
+    )
+)</code></pre>
+        </div>
+
+        <h2>Các trường hợp sử dụng</h2>
+        <ul>
+            <li>Báo cáo doanh số theo nhiều chiều</li>
+            <li>Phân tích xu hướng theo thời gian</li>
+            <li>So sánh hiệu suất giữa các khu vực</li>
+            <li>Tạo dashboard động</li>
+            <li>Phân tích tỷ trọng và tăng trưởng</li>
+        </ul>
+
+        <h2>Ưu điểm của PIVOTBY</h2>
+        <ul>
+            <li>Linh hoạt hơn PivotTable truyền thống</li>
+            <li>Tự động cập nhật khi dữ liệu thay đổi</li>
+            <li>Có thể kết hợp với các hàm mảng khác</li>
+            <li>Dễ dàng tùy chỉnh cách tính toán</li>
+            <li>Hiệu suất tốt với dữ liệu lớn</li>
+        </ul>
+
+        <h2>Lưu ý quan trọng</h2>
+        <ul>
+            <li>Chỉ có từ Excel 365 trở lên</li>
+            <li>Cần đủ không gian để hiển thị kết quả</li>
+            <li>Nên kết hợp với LET để tối ưu hiệu suất</li>
+            <li>Cần xử lý dữ liệu trống cẩn thận</li>
+        </ul>
+
+        <h2>Thực hành</h2>
+        <div class="practice-section">
+            <h3>File thực hành:</h3>
+            <a href="files/pivotby_examples.xlsx" class="download-btn">
+                <i class="fas fa-download"></i> Tải file thực hành
+            </a>
+            
+            <h3>Bài tập:</h3>
+            <ol>
+                <li>Tạo báo cáo doanh số theo khu vực và thời gian</li>
+                <li>Phân tích hiệu suất bán hàng theo sản phẩm</li>
+                <li>So sánh kết quả kinh doanh giữa các kỳ</li>
+                <li>Xây dựng dashboard tự động cập nhật</li>
+            </ol>
+        </div>
+
+        <div class="tips-section">
+            <h2>Mẹo sử dụng hiệu quả</h2>
+            <ul>
+                <li>Chuẩn bị dữ liệu sạch trước khi sử dụng</li>
+                <li>Sử dụng FILTER để lọc dữ liệu trước khi pivot</li>
+                <li>Kết hợp với LAMBDA để tạo hàm tổng hợp tùy chỉnh</li>
+                <li>Sử dụng định dạng có điều kiện để làm nổi bật dữ liệu</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 
