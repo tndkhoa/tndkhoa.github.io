@@ -41,152 +41,14 @@ body {
 }
 
 .menu-toggle:hover {
-    background: var(--excel-dark-green);
+    background: var(--excel-green);
+}
+
+.menu-toggle i {
+    font-size: 16px;
 }
 
 /* Sidebar */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    width: 300px;
-    height: 100vh;
-    background: var(--menu-black);
-    color: var(--text-white);
-    padding: 80px 20px 20px;
-    transition: left 0.3s ease;
-    z-index: 999;
-    overflow-y: auto;
-}
-
-.sidebar.active {
-    left: 0;
-}
-
-/* Search Box */
-.search-box {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.search-input {
-    width: 100%;
-    padding: 10px;
-    padding-right: 35px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background: #333;
-    color: var(--text-white);
-}
-
-.search-box i {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-}
-
-/* Menu Items */
-.nav-menu {
-    list-style: none;
-}
-
-.menu-group {
-    margin-bottom: 10px;
-}
-
-.menu-header {
-    padding: 10px;
-    cursor: pointer;
-    background: #333;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.menu-header:hover {
-    background: var(--excel-green);
-}
-
-.submenu {
-    display: none;
-    padding-left: 20px;
-    margin-top: 5px;
-}
-
-.nav-menu a {
-    display: block;
-    padding: 10px;
-    color: var(--text-white);
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.nav-menu a:hover {
-    background: var(--excel-green);
-}
-
-.nav-menu a.active {
-    background: var(--excel-green);
-}
-
-/* Icons */
-.fas {
-    margin-right: 8px;
-}
-
-/* Container */
-.container {
-    padding: 20px;
-    margin-left: 0;
-    transition: margin-left 0.3s ease;
-}
-
-.container.menu-active {
-    margin-left: 300px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        left: -100%;
-    }
-    
-    .container.menu-active {
-        margin-left: 0;
-    }
-}
-
-/* Card styles cho các hàm */
-.function-card {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.function-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-.function-card h2 {
-    color: #2196F3;
-    margin-bottom: 10px;
-}
-
-.function-card p {
-    color: #666;
-    font-size: 14px;
-}
-
-/* Sidebar styles */
 .sidebar {
     position: fixed;
     top: 0;
@@ -199,6 +61,10 @@ body {
     overflow-y: auto;
     transition: left 0.3s ease;
     z-index: 999;
+}
+
+.sidebar.active {
+    left: 0;
 }
 
 /* Tùy chỉnh thanh cuộn */
@@ -219,48 +85,45 @@ body {
     background: #45a049;
 }
 
-/* Đảm bảo nội dung chính không bị đè */
-.container {
-    margin-left: 0;
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-    max-width: 1200px;
-    margin: 80px auto 0;
-    padding-top: 80px;
+/* Search Box */
+.search-box {
+    position: relative;
+    margin: 1rem 0;
+    margin-top: 50px;
 }
 
-.container.menu-active {
-    margin-left: 250px;
+.search-input {
+    width: 100%;
+    padding: 8px 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
-/* Style cho menu */
-.sidebar h2 {
-    padding: 1rem 0;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+.search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.sidebar ul {
+.search-box i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Menu Items */
+.nav-menu {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.sidebar li {
-    margin-bottom: 0.5rem;
-}
-
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 0.5rem;
-    border-radius: 4px;
-    transition: background 0.3s ease;
-}
-
-.sidebar a:hover {
-    background: var(--excel-green);
+.menu-group {
+    margin-bottom: 10px;
 }
 
 .menu-header {
@@ -288,6 +151,12 @@ body {
     transform: rotate(180deg);
 }
 
+.submenu {
+    display: none;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
 .submenu li a {
     display: block;
     padding: 0.5rem 1rem 0.5rem 2rem;
@@ -302,85 +171,37 @@ body {
     padding-left: 2.5rem;
 }
 
-.home-item a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    color: white;
+.nav-menu a {
+    display: block;
+    padding: 10px;
+    color: var(--text-white);
     text-decoration: none;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-
-.home-item a:hover {
-    background: var(--excel-green);
-}
-
-/* Thêm animation cho dropdown */
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.menu-group:hover .submenu li {
-    animation: slideDown 0.3s ease-out forwards;
-}
-
-/* Delay animation cho từng item */
-.submenu li:nth-child(1) { animation-delay: 0.1s; }
-.submenu li:nth-child(2) { animation-delay: 0.2s; }
-.submenu li:nth-child(3) { animation-delay: 0.3s; }
-.submenu li:nth-child(4) { animation-delay: 0.4s; }
-
-/* Responsive */
-@media (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-100%);
-        z-index: 1000;
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
-}
-
-/* Toggle Button */
-.toggle-btn {
-    position: fixed;
-    left: 20px;
-    top: 20px;
-    background-color: var(--excel-red);
-    color: white;
-    border: none;
-    padding: 10px 15px;
     border-radius: 5px;
-    cursor: pointer;
-    z-index: 1000;
-    transition: 0.3s;
+    transition: background 0.3s;
 }
 
-.toggle-btn:hover {
-    background-color: var(--excel-green);
+.nav-menu a:hover {
+    color: whitesmoke;
 }
 
-/* Main Content */
+.nav-menu a.active {
+    background: var(--excel-green);
+    color: white;
+}
+
+.nav-menu i {
+    margin-right: 10px;
+}
+
+/* Container */
 .container {
-    margin-left: 0;
-    padding: 20px;
-    transition: 0.3s;
     max-width: 1200px;
     margin: 80px auto 0;
-    padding-top: 80px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
 }
 
-.container.active {
+.container.menu-active {
     margin-left: 250px;
 }
 
@@ -472,56 +293,6 @@ li {
     color: #444;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container.active {
-        margin-left: 0;
-    }
-    
-    .sidebar {
-        width: 100%;
-        left: -100%;
-    }
-    
-    .sidebar.active {
-        left: 0;
-    }
-    
-    table {
-        display: block;
-        overflow-x: auto;
-    }
-    
-    h1 {
-        font-size: 2em;
-    }
-}
-
-/* iframe styles */
-iframe {
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    margin: 20px 0;
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.container {
-    animation: fadeIn 0.5s ease-out;
-}
-
 /* Function Grid */
 .function-grid {
     display: grid;
@@ -592,73 +363,7 @@ iframe {
     transform: scale(1.05);
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .function-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .function-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .feature-card {
-        padding: 20px;
-    }
-    
-    .feature-card p {
-        min-height: auto;
-    }
-}
-
-/* Info Sections */
-.info-section {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    margin: 20px 0;
-}
-
-.info-section ul, 
-.info-section ol {
-    margin: 0;
-    padding-left: 25px;
-}
-
-.info-section li {
-    margin: 10px 0;
-    color: #444;
-}
-
-/* Responsive Design for Function Grid */
-@media (max-width: 768px) {
-    .function-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Thêm style cho nút Home */
-.home-btn {
-    display: none;
-}
-
-/* Cập nhật màu cho các liên kết trong sidebar */
-.sidebar a:hover {
-    color: whitesmoke;
-}
-
-/* Thêm vào file style.css */
-.sidebar li.active {
-    background-color: var(--excel-green);
-}
-
-.sidebar li.active a {
-    color: white;
-}
-
+/* Function Groups */
 .function-groups {
     padding: 2rem 0;
 }
@@ -708,21 +413,7 @@ iframe {
     font-size: 0.8rem;
 }
 
-.btn-learn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background: var(--excel-green);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.btn-learn:hover {
-    background: var(--excel-red);
-}
-
+/* Quick Start Section */
 .quick-start {
     position: relative;
     margin-top: 30px;
@@ -730,7 +421,6 @@ iframe {
     border-top: 2px solid #e5e7eb;
 }
 
-/* Tùy chọn: Thêm gradient để làm đẹp đường kẻ */
 .quick-start::before {
     content: '';
     position: absolute;
@@ -739,6 +429,13 @@ iframe {
     right: 0;
     height: 2px;
     background: linear-gradient(to right, transparent, var(--excel-green), transparent);
+}
+
+.quick-start h2,
+.quick-start .section-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .quick-start-grid {
@@ -762,6 +459,22 @@ iframe {
     margin-bottom: 1rem;
 }
 
+/* Buttons */
+.btn-learn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--excel-green);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn-learn:hover {
+    background: var(--excel-red);
+}
+
 .btn-start {
     display: inline-block;
     margin-top: 1rem;
@@ -777,206 +490,85 @@ iframe {
     background: var(--excel-green);
 }
 
-/* Style cho menu */
-.nav-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.menu-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.3s;
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.menu-item:hover {
-    background: var(--excel-green);
-}
-
-.menu-group {
-    margin-bottom: 10px;
-}
-
-.menu-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    color: var(--excel-green);
-    transition: background 0.3s;
-}
-
-.menu-title:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.menu-title i:last-child {
-    margin-left: auto;
-    transition: transform 0.3s;
-}
-
-.menu-group.active .menu-title i:last-child {
-    transform: rotate(180deg);
-}
-
-.menu-items {
-    display: none;
-    flex-direction: column;
-    padding-left: 1rem;
-}
-
-.menu-group.active .menu-items {
-    display: flex;
-}
-
-/* Search box styles */
-.search-box {
-    position: relative;
-    margin: 1rem 0;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 0.75rem 2.5rem 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 4px;
-    color: white;
-}
-
-.search-box input:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.search-box i {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* Hidden elements */
-.menu-group.hidden,
-.submenu li.hidden {
-    display: none;
-}
-
-/* Search results */
-.menu-group.search-active .submenu {
-    max-height: 500px;
-}
-
-.highlight-match {
-    background-color: rgba(var(--excel-green-rgb), 0.3);
-    border-radius: 2px;
-    padding: 0 2px;
-}
-
-/* Style cho search input */
-.search-input {
-    width: 100%;
-    padding: 8px 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-.search-input:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* Style cho hover chỉ khi không có text tìm kiếm */
-.menu-group:hover .submenu {
-    max-height: 500px;
-}
-
-/* Vô hiệu hóa hover khi đang tìm kiếm */
-.sidebar.is-searching .menu-group:hover .submenu {
-    max-height: initial;
-}
-
-/* Hiển thị submenu khi có kết quả tìm kiếm */
-.menu-group.has-results .submenu {
-    max-height: 500px !important;
-}
-
-/* Style cho menu item active */
-.nav-menu a.active {
-    background: var(--excel-green);
-    color: white;
-}
-
-.menu-toggle:hover {
-    background: var(--excel-green);
-}
-
-.menu-toggle i {
-    font-size: 16px;
-}
-
-/* Class active cho sidebar */
-.sidebar.active {
-    left: 0; /* Hiện menu */
-}
-
-/* Đảm bảo menu luôn nằm trên cùng */
-.sidebar, .menu-toggle {
-    z-index: 9999;
-}
-
-/* Style cho container */
 .container {
-    transition: margin-left 0.3s ease;
-    margin-left: 0;
+    animation: fadeIn 0.5s ease-out;
 }
 
-.container.menu-active {
-    margin-left: 250px;
+.menu-group:hover .submenu li {
+    animation: slideDown 0.3s ease-out forwards;
 }
 
-/* Icons */
-.nav-menu i {
-    margin-right: 10px;
+.submenu li:nth-child(1) { animation-delay: 0.1s; }
+.submenu li:nth-child(2) { animation-delay: 0.2s; }
+.submenu li:nth-child(3) { animation-delay: 0.3s; }
+.submenu li:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .function-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.container, 
-.content-wrapper,
-main {
-    max-width: 1200px;
-    margin: 80px auto 0;
-    padding: 0 20px;
-}
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        left: -100%;
+        transform: translateX(-100%);
+        z-index: 1000;
+    }
 
-.content-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
+    .sidebar.active {
+        left: 0;
+        transform: translateX(0);
+    }
 
-/* Khi đang tìm kiếm, submenu luôn hiển thị */
-.menu.searching .submenu {
-    display: block !important;
-    opacity: 1;
-    visibility: visible;
-}
+    .container.menu-active,
+    .container.active {
+        margin-left: 0;
+    }
 
-.quick-start h2,
-.quick-start .section-title {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 20px;
-}
+    .function-grid {
+        grid-template-columns: 1fr;
+    }
 
+    .feature-card {
+        padding: 20px;
+    }
+
+    .feature-card p {
+        min-height: auto;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}

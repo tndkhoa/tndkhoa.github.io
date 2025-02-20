@@ -261,21 +261,58 @@ function searchMenu() {
                 
                 submenuItems.forEach(item => {
                     const text = item.textContent.toLowerCase();
-                    if (text.includes(searchTerm)) {
+                    const liParent = item.closest('li');
+                    if (!searchTerm) {
+                        // Hiển thị tất cả và khôi phục style khi không có từ khóa tìm kiếm
                         item.style.display = 'block';
+                        if (liParent) {
+                            liParent.style.display = 'list-item';
+                          //  liParent.style.listStyle = 'none'; // Bỏ dấu đầu dòng
+                        }
+                        hasVisibleSubmenuItem = true;
+                        hasVisibleItem = true;
+                        submenu.style.display = 'block';
+                    } else if (text.includes(searchTerm)) {
+                        // Hiển thị các item khớp với từ khóa
+                        item.style.display = 'block';
+                        if (liParent) {
+                            liParent.style.display = 'list-item';
+                            //liParent.style.listStyle = 'none'; // Bỏ dấu đầu dòng khi tìm thấy
+                        }
                         hasVisibleSubmenuItem = true;
                         hasVisibleItem = true;
                     } else {
+                        // Ẩn các item không khớp
                         item.style.display = 'none';
+                        if (liParent) {
+                            liParent.style.display = 'none';
+                        }
                     }
                 });
                 
-                submenu.style.display = hasVisibleSubmenuItem ? 'block' : 'none';
+                // Chỉ ẩn/hiện submenu khi đang tìm kiếm
+                if (searchTerm) {
+                    submenu.style.display = hasVisibleSubmenuItem ? 'block' : 'none';
+                }
             });
             
-            group.style.display = hasVisibleItem ? 'block' : 'none';
-            if (groupTitle) {
-                groupTitle.style.display = hasVisibleItem ? 'block' : 'none';
+            // Hiển thị tất cả group và header khi không có từ khóa tìm kiếm
+            if (!searchTerm) {
+                group.style.display = 'block';
+                if (groupTitle) {
+                    groupTitle.style.display = 'block';
+                    // Hiển thị lại icon khi không có từ khóa tìm kiếm
+                    const icons = groupTitle.querySelectorAll('i');
+                    icons.forEach(icon => icon.style.display = 'inline-block');
+                }
+            } else {
+                group.style.display = hasVisibleItem ? 'block' : 'none';
+                if (groupTitle) {
+                    groupTitle.style.display = hasVisibleItem ? 'block' : 'none';
+                    // Hiển thị lại icon khi có kết quả tìm kiếm
+                    const icons = groupTitle.querySelectorAll('i');
+                    icons.forEach(icon => icon.style.display = hasVisibleItem ? 'inline-block' : 'none');
+                }
             }
         });
     });
