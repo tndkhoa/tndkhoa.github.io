@@ -1,4 +1,4 @@
- ---
+---
 name: Excel Function
 about: Template cho hàm Excel mới
 title: "[FUNCTION] "
